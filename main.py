@@ -34,6 +34,8 @@ def validate_word(text: str) -> None:
     words = text.split()
     if len(words) != 1:
         raise ValueError(f"entry must be exactly one word, got {len(words)}")
+    if not text.isalpha():
+        raise ValueError("entry must be letters only, no digits or punctuation")
     if not 1 <= len(text) <= 30:
         raise ValueError(f"entry must be 1-30 characters, got {len(text)}")
     if not text.strip():
